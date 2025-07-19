@@ -4,173 +4,315 @@
 
 @layer base {
   :root {
-    --background: 210 11% 4%;
-    --foreground: 0 0% 98%;
-    --card: 210 11% 8%;
-    --card-foreground: 0 0% 98%;
-    --popover: 210 11% 8%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 200 100% 62%;
-    --primary-foreground: 210 11% 4%;
-    --secondary: 210 6% 15%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 210 6% 15%;
-    --muted-foreground: 240 5% 65%;
-    --accent: 210 6% 15%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 210 6% 20%;
-    --input: 210 6% 15%;
-    --ring: 200 100% 62%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
     --radius: 0.5rem;
   }
+}
 
+@layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-neo-background text-neo-text-primary;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  /* Custom scrollbar */
+  /* Custom scrollbar for dark theme */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-secondary;
+    @apply bg-neo-surface;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-border rounded-full;
+    @apply bg-neo-border rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary;
+    @apply bg-primary/50;
+  }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-primary/30 text-neo-text-primary;
+  }
+
+  /* Focus styles for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-focus ring-offset-2 ring-offset-neo-background;
   }
 }
 
 @layer components {
-  /* Glow effects */
-  .glow-primary {
-    @apply shadow-glow;
-  }
-
-  .glow-premium {
-    @apply shadow-premium;
-  }
-
-  .glow-error {
-    @apply shadow-error;
-  }
-
-  .glow-success {
-    @apply shadow-success;
-  }
-
-  /* Glass morphism */
-  .glass {
-    @apply bg-secondary/80 backdrop-blur-md border border-border;
-  }
-
-  .glass-strong {
-    @apply bg-secondary/90 backdrop-blur-lg border border-border;
-  }
-
-  /* Gradient backgrounds */
-  .gradient-primary {
-    background: linear-gradient(135deg, theme("colors.primary.400"), theme("colors.violet.400"));
-  }
-
-  .gradient-premium {
-    background: linear-gradient(135deg, theme("colors.premium.400"), theme("colors.warning.400"));
-  }
-
-  /* Text gradients */
-  .text-gradient-primary {
-    @apply bg-gradient-to-r from-primary-400 to-violet-400 bg-clip-text text-transparent;
-  }
-
-  .text-gradient-premium {
-    @apply bg-gradient-to-r from-premium-400 to-warning-400 bg-clip-text text-transparent;
-  }
-
-  /* Focus styles */
-  .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
-  }
-
-  /* Button variants */
+  /* Neo Stadium Glow Button Variants */
   .btn-primary {
-    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-4 py-2 rounded-lg transition-all duration-200 focus-ring;
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground;
+    @apply shadow-glow hover:shadow-glow-lg transition-all duration-300;
+    @apply focus:ring-2 focus:ring-focus focus:ring-offset-2 focus:ring-offset-neo-background;
   }
 
-  .btn-secondary {
-    @apply bg-secondary hover:bg-secondary/80 text-secondary-foreground border border-border font-medium px-4 py-2 rounded-lg transition-all duration-200 focus-ring;
-  }
-
-  .btn-ghost {
-    @apply hover:bg-secondary text-foreground font-medium px-4 py-2 rounded-lg transition-all duration-200 focus-ring;
+  .btn-success {
+    @apply bg-success hover:bg-success/90 text-success-foreground;
+    @apply shadow-success-glow hover:shadow-success-glow transition-all duration-300;
   }
 
   .btn-premium {
-    @apply gradient-premium hover:shadow-premium text-primary-foreground font-medium px-4 py-2 rounded-lg transition-all duration-200 focus-ring;
+    @apply bg-gradient-premium hover:opacity-90 text-premium-foreground;
+    @apply shadow-premium-glow hover:shadow-premium-glow transition-all duration-300;
+    position: relative;
+    overflow: hidden;
   }
 
-  /* Input styles */
-  .input-base {
-    @apply bg-input border border-border text-foreground placeholder:text-muted-foreground px-3 py-2 rounded-lg transition-all duration-200 focus:border-primary focus:ring-1 focus:ring-primary;
+  .btn-premium::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
   }
 
-  /* Card styles */
-  .card {
-    @apply bg-card border border-border rounded-xl p-6;
+  .btn-premium:hover::before {
+    left: 100%;
   }
 
-  .card-elevated {
-    @apply bg-card border border-border rounded-xl p-6 shadow-lg;
+  .btn-live {
+    @apply bg-live hover:bg-live/90 text-live-foreground;
+    @apply animate-live-pulse shadow-live-glow;
   }
 
-  /* Animation utilities */
-  .animate-in {
-    @apply animate-fade-in;
+  /* Surface components */
+  .surface {
+    @apply bg-neo-surface border border-neo-border rounded-lg;
+    @apply shadow-neo backdrop-blur-sm;
   }
 
-  .animate-slide-up {
-    @apply animate-slide-up;
+  .surface-elevated {
+    @apply bg-neo-surface-elevated border border-neo-border-strong rounded-lg;
+    @apply shadow-neo-lg backdrop-blur-md;
   }
 
-  .animate-scale-in {
-    @apply animate-scale-in;
+  /* Input styling */
+  .input-neo {
+    @apply bg-neo-surface border border-neo-border rounded-md px-3 py-2;
+    @apply text-neo-text-primary placeholder:text-neo-text-tertiary;
+    @apply focus:border-focus focus:ring-1 focus:ring-focus;
+    @apply transition-all duration-200;
+  }
+
+  .input-neo:focus {
+    @apply shadow-focus-glow;
+  }
+
+  /* Chat bubble variants */
+  .chat-bubble-self {
+    @apply bg-primary text-primary-foreground rounded-2xl rounded-br-md px-4 py-2;
+    @apply shadow-glow-sm;
+  }
+
+  .chat-bubble-other {
+    @apply bg-neo-surface text-neo-text-secondary rounded-2xl rounded-bl-md px-4 py-2;
+    @apply border border-neo-border;
+  }
+
+  .chat-bubble-system {
+    @apply bg-neo-border text-neo-text-tertiary rounded-full px-3 py-1 text-xs;
+    @apply text-center mx-auto;
+  }
+
+  /* Status indicators */
+  .status-online {
+    @apply bg-success shadow-success-glow animate-pulse;
+  }
+
+  .status-offline {
+    @apply bg-neo-text-tertiary;
+  }
+
+  .status-away {
+    @apply bg-warning shadow-warning-glow;
+  }
+
+  .status-busy {
+    @apply bg-error shadow-error-glow;
+  }
+
+  /* Premium badges */
+  .badge-premium {
+    @apply bg-gradient-premium text-premium-foreground px-2 py-1 rounded-full text-xs font-semibold;
+    @apply shadow-premium-glow animate-premium-shimmer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Glow effects for interactive elements */
+  .glow-on-hover {
+    @apply transition-all duration-300;
+  }
+
+  .glow-on-hover:hover {
+    @apply shadow-glow transform scale-105;
+  }
+
+  /* Video player controls */
+  .video-control {
+    @apply bg-black/60 backdrop-blur-sm text-white rounded-md p-2;
+    @apply hover:bg-black/80 transition-all duration-200;
+  }
+
+  .video-control:hover {
+    @apply shadow-glow-sm;
+  }
+
+  /* Loading states */
+  .loading-shimmer {
+    @apply bg-gradient-to-r from-neo-surface via-neo-surface-elevated to-neo-surface;
+    @apply animate-pulse;
+    background-size: 200% 100%;
+  }
+
+  /* Notification styles */
+  .notification-success {
+    @apply bg-success/10 border border-success/20 text-success;
+    @apply shadow-success-glow/50;
+  }
+
+  .notification-error {
+    @apply bg-error/10 border border-error/20 text-error;
+    @apply shadow-error-glow/50;
+  }
+
+  .notification-warning {
+    @apply bg-warning/10 border border-warning/20 text-warning;
+    @apply shadow-warning-glow/50;
+  }
+
+  .notification-info {
+    @apply bg-primary/10 border border-primary/20 text-primary;
+    @apply shadow-glow/50;
   }
 }
 
 @layer utilities {
-  /* Hide scrollbar but keep functionality */
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  /* Text gradient utilities */
+  .text-gradient-primary {
+    @apply bg-gradient-primary bg-clip-text text-transparent;
   }
 
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  .text-gradient-premium {
+    @apply bg-gradient-premium bg-clip-text text-transparent;
   }
 
-  /* Text utilities */
-  .text-balance {
-    text-wrap: balance;
+  /* Glow utilities */
+  .glow-primary {
+    @apply shadow-glow;
   }
 
-  /* Aspect ratio utilities */
-  .aspect-video {
-    aspect-ratio: 16 / 9;
+  .glow-success {
+    @apply shadow-success-glow;
   }
 
-  .aspect-square {
-    aspect-ratio: 1 / 1;
+  .glow-premium {
+    @apply shadow-premium-glow;
+  }
+
+  .glow-live {
+    @apply shadow-live-glow;
+  }
+
+  /* Animation utilities */
+  .animate-glow {
+    @apply animate-glow-pulse;
+  }
+
+  .animate-float {
+    @apply animate-float;
+  }
+
+  /* Backdrop utilities */
+  .backdrop-neo {
+    @apply backdrop-blur-md bg-neo-background/80;
+  }
+
+  .backdrop-surface {
+    @apply backdrop-blur-sm bg-neo-surface/90;
+  }
+}
+
+/* Custom animations for premium feel */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Responsive design helpers */
+@media (max-width: 768px) {
+  .mobile-optimized {
+    @apply text-sm p-2;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    @apply border-2 border-primary;
+  }
+
+  .surface {
+    @apply border-2;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse,
+  .animate-glow-pulse,
+  .animate-live-pulse,
+  .animate-float {
+    animation: none;
+  }
+
+  .transition-all {
+    transition: none;
   }
 }
