@@ -1,9 +1,9 @@
-# watch-party
+# Chat party
 
 *Automatically synced with your [v0.dev](https://v0.dev) deployments*
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/bross-projects-dcd052ec/v0-watch-party)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/HyIO5kJ1B7A)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/bross-projects/v0-chat-party)
+[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/KppsSLBy0Hl)
 
 ## Overview
 
@@ -14,13 +14,13 @@ Any changes you make to your deployed app will be automatically pushed to this r
 
 Your project is live at:
 
-**[https://vercel.com/bross-projects-dcd052ec/v0-watch-party](https://vercel.com/bross-projects-dcd052ec/v0-watch-party)**
+**[https://vercel.com/bross-projects/v0-chat-party](https://vercel.com/bross-projects/v0-chat-party)**
 
 ## Build your app
 
 Continue building your app on:
 
-**[https://v0.dev/chat/projects/HyIO5kJ1B7A](https://v0.dev/chat/projects/HyIO5kJ1B7A)**
+**[https://v0.dev/chat/projects/KppsSLBy0Hl](https://v0.dev/chat/projects/KppsSLBy0Hl)**
 
 ## How It Works
 
