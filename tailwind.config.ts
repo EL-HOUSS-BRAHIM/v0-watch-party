@@ -363,10 +363,113 @@ const config: Config = {
         "gradient-premium": "linear-gradient(135deg, #FFD700 0%, #FF8C00 100%)",
         "gradient-live": "linear-gradient(135deg, #FF4444 0%, #FF6B6B 100%)",
         "gradient-surface": "linear-gradient(135deg, #1A1A1D 0%, #242428 100%)",
+        "gradient-radial": "radial-gradient(ellipse at center, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "mesh-gradient": "radial-gradient(at 40% 20%, hsla(190,90%,70%,0.3) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(285,70%,70%,0.2) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(45,90%,70%,0.1) 0px, transparent 50%)",
+        "video-overlay": "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%)",
+        "chat-gradient": "linear-gradient(180deg, rgba(26,26,29,0.95) 0%, rgba(26,26,29,1) 100%)",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function({ addUtilities }) {
+      const newUtilities = {
+        // Glow utilities
+        '.glow-primary': {
+          boxShadow: '0 0 20px rgba(58, 190, 249, 0.4)',
+        },
+        '.glow-success': {
+          boxShadow: '0 0 20px rgba(159, 248, 122, 0.4)',
+        },
+        '.glow-premium': {
+          boxShadow: '0 0 30px rgba(255, 215, 0, 0.4)',
+        },
+        '.glow-live': {
+          boxShadow: '0 0 25px rgba(255, 68, 68, 0.5)',
+        },
+        // Text gradient utilities
+        '.text-gradient-primary': {
+          background: 'linear-gradient(135deg, #3ABEF9 0%, #7C5FFF 100%)',
+          '-webkit-background-clip': 'text',
+          '-webkit-text-fill-color': 'transparent',
+          'background-clip': 'text',
+        },
+        '.text-gradient-premium': {
+          background: 'linear-gradient(135deg, #FFD700 0%, #FF8C00 100%)',
+          '-webkit-background-clip': 'text',
+          '-webkit-text-fill-color': 'transparent',
+          'background-clip': 'text',
+        },
+        // Button styles
+        '.btn-primary': {
+          background: 'linear-gradient(135deg, #3ABEF9 0%, #7C5FFF 100%)',
+          color: '#FFFFFF',
+          '&:hover': {
+            boxShadow: '0 0 20px rgba(58, 190, 249, 0.4)',
+            transform: 'translateY(-1px)',
+          },
+          '&:active': {
+            transform: 'translateY(0)',
+          },
+        },
+        '.btn-premium': {
+          background: 'linear-gradient(135deg, #FFD700 0%, #FF8C00 100%)',
+          color: '#0E0E10',
+          '&:hover': {
+            boxShadow: '0 0 30px rgba(255, 215, 0, 0.4)',
+            transform: 'translateY(-1px)',
+          },
+        },
+        '.btn-live': {
+          background: 'linear-gradient(135deg, #FF4444 0%, #FF6B6B 100%)',
+          color: '#FFFFFF',
+          animation: 'live-pulse 1.5s ease-in-out infinite',
+        },
+        // Card styles
+        '.card': {
+          backgroundColor: '#1A1A1D',
+          borderColor: '#2E2E32',
+          borderWidth: '1px',
+          borderRadius: '0.75rem',
+          boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3)',
+        },
+        '.card-elevated': {
+          backgroundColor: '#242428',
+          borderColor: '#3A3A3F',
+          borderWidth: '1px',
+          borderRadius: '0.75rem',
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3)',
+        },
+        // Input styles
+        '.input-base': {
+          backgroundColor: '#1A1A1D',
+          borderColor: '#2E2E32',
+          color: '#FFFFFF',
+          '&:focus': {
+            borderColor: '#14FFEC',
+            boxShadow: '0 0 0 3px rgba(20, 255, 236, 0.1)',
+          },
+          '&::placeholder': {
+            color: '#8A8A8A',
+          },
+        },
+        // Video player specific
+        '.video-overlay': {
+          background: 'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%)',
+        },
+        '.chat-bubble-self': {
+          backgroundColor: '#3ABEF9',
+          color: '#FFFFFF',
+        },
+        '.chat-bubble-other': {
+          backgroundColor: '#2E2E32',
+          color: '#B3B3B3',
+        },
+      }
+      addUtilities(newUtilities)
+    }
+  ],
 }
 
 export default config
