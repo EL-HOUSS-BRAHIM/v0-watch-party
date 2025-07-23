@@ -2,7 +2,7 @@
 
 ## 📁 Component Organization
 
-```
+\`\`\`
 components/
 ├── admin/           # Admin panel specific components
 ├── auth/            # Authentication & security components  
@@ -18,21 +18,21 @@ components/
 ├── ui/              # Base UI components (Shadcn/ui)
 ├── video/           # Video player & streaming components
 └── watch-party/     # Live watch party room components
-```
+\`\`\`
 
 ## 🎨 Design System - "Neo Stadium Glow"
 
 ### Color Usage Guide
 
 #### Primary Actions & Navigation
-```css
+\`\`\`css
 /* Electric Blue - Main brand color */
 .primary { color: #3ABEF9; }
 /* Use for: Primary buttons, links, active states, logos */
-```
+\`\`\`
 
 #### Status & Feedback  
-```css
+\`\`\`css
 /* Success - Lime Glow */
 .success { color: #9FF87A; }
 /* Use for: Online status, success messages, confirmations */
@@ -44,10 +44,10 @@ components/
 /* Error - Rad Red */
 .error { color: #FF3B3B; }
 /* Use for: Errors, offline status, destructive actions */
-```
+\`\`\`
 
 #### Special Features
-```css
+\`\`\`css
 /* Premium - Gold */
 .premium { color: #FFD700; }
 /* Use for: Premium badges, paid features, upgrades */
@@ -63,18 +63,18 @@ components/
 /* Soft Pink - Emotional */
 .pink { color: #FF69B4; }
 /* Use for: Reactions, hearts, emotive elements */
-```
+\`\`\`
 
 ### Typography Hierarchy
-```css
+\`\`\`css
 /* Text Colors */
 .neo-text-primary { color: #FFFFFF; }      /* Main headings, primary text */
 .neo-text-secondary { color: #B3B3B3; }   /* Body text, descriptions */  
 .neo-text-tertiary { color: #8A8A8A; }    /* Muted text, timestamps */
-```
+\`\`\`
 
 ### Surface Colors
-```css
+\`\`\`css
 /* Backgrounds */
 .neo-background { background: #0E0E10; }        /* Main app background */
 .neo-surface { background: #1A1A1D; }           /* Cards, modals, panels */
@@ -83,7 +83,7 @@ components/
 /* Borders */
 .neo-border { border-color: #2E2E32; }          /* Standard borders */
 .neo-border-strong { border-color: #3A3A3F; }   /* Emphasized borders */
-```
+\`\`\`
 
 ## 🧩 Key Component Categories
 
@@ -203,7 +203,7 @@ components/
 ## 🚀 Usage Examples
 
 ### Creating a Watch Party Card
-```tsx
+\`\`\`tsx
 <PartyCard 
   party={{
     id: "123",
@@ -213,10 +213,10 @@ components/
     thumbnail: "/thumbnail.jpg"
   }}
 />
-```
+\`\`\`
 
 ### Building a Premium Feature
-```tsx
+\`\`\`tsx
 <Card className="border-premium bg-premium/5">
   <Badge className="bg-premium text-premium-foreground">
     <Crown className="h-3 w-3 mr-1" />
@@ -224,10 +224,10 @@ components/
   </Badge>
   <h3 className="text-premium">4K Ultra HD Streaming</h3>
 </Card>
-```
+\`\`\`
 
 ### Admin Dashboard Widget
-```tsx
+\`\`\`tsx
 <Card className="neo-surface">
   <CardHeader>
     <CardTitle className="text-neo-text-primary">System Health</CardTitle>
@@ -236,37 +236,37 @@ components/
     <SystemHealth health={healthData} />
   </CardContent>
 </Card>
-```
+\`\`\`
 
 ## 🎨 Custom CSS Utilities
 
 ### Button Styles
-```css
+\`\`\`css
 .btn-primary    /* Primary electric blue button */
 .btn-secondary  /* Secondary neutral button */
 .btn-premium    /* Gold premium button */
 .btn-success    /* Lime green success button */
 .btn-error      /* Red destructive button */
-```
+\`\`\`
 
 ### Text Gradients
-```css
+\`\`\`css
 .text-gradient-primary  /* Blue to purple gradient text */
 .text-gradient-premium  /* Gold gradient text */
-```
+\`\`\`
 
 ### Card Styles
-```css
+\`\`\`css
 .card           /* Standard neo card with glow shadow */
 .card-elevated  /* Elevated card with stronger shadow */
 .card-premium   /* Premium card with gold accent */
-```
+\`\`\`
 
 ### Input Styles  
-```css
+\`\`\`css
 .input-base     /* Standard dark input with focus glow */
 .input-error    /* Error state with red border */
 .input-success  /* Success state with green border */
-```
+\`\`\`
 
 This architecture provides a scalable, maintainable, and visually cohesive component system perfect for a modern streaming platform. Each component follows the "Neo Stadium Glow" design language while maintaining accessibility and performance standards.
